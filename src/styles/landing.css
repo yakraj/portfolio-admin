@@ -37,8 +37,8 @@ body {
   /* border: 1px solid #000; */
   display: flex;
   border-right: 1px solid grey;
-  justify-content: start;
-  align-items: start;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-direction: column;
   background: #f0ffff;
 }

@@ -1,8 +1,8 @@
 .post-archive-container {
   width: 100%;
   display: flex;
-  justify-content: start;
-  align-items: start;
+  justify-content: flex-start;
+  align-items: flex-start;
   height: 50vh;
   flex-direction: column;
   overflow-y: scroll;
@@ -41,7 +41,7 @@
 .archive-meta-section {
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   padding: 10px;
   flex-direction: column;
 }

@@ -7,7 +7,7 @@ export const NewPosts = () => {
 
   const PostTypes = [
     { text: "Small Projects", set: "small" },
-    { text: "Mega Projects", set: "mega" }
+    { text: "Mega Projects", set: "mega" },
   ];
 
   const SmallProjects = () => {
@@ -21,7 +21,8 @@ export const NewPosts = () => {
       referenceURL,
       setreferenceURL,
       usedTech,
-      setusedTech
+      setusedTech,
+      UploadImages,
     } = useContext(MainContext);
 
     return (
@@ -38,14 +39,14 @@ export const NewPosts = () => {
           type="text"
           placeholder="Project description"
         />
-        <input type="file" />
+        <input onChange={(e) => setprojectImages(e.target.files)} type="file" />
         <input
           value={referenceURL}
           onChange={(e) => setreferenceURL(e.target.value)}
           placeholder="Reference URL"
           type="url"
         />
-        <button>Submit</button>
+        <button onClick={() => UploadImages(projectImages)}>Submit</button>
       </div>
     );
   };
@@ -60,7 +61,8 @@ export const NewPosts = () => {
       referenceURL,
       setreferenceURL,
       usedTech,
-      setusedTech
+      setusedTech,
+      UploadImages,
     } = useContext(MainContext);
 
     return (
@@ -83,14 +85,18 @@ export const NewPosts = () => {
           type="text"
           placeholder="Technologies used (Saperated by comma)"
         />
-        <input multiple={true} type="file" />
+        <input
+          onChange={(e) => setprojectImages(e.target.files)}
+          multiple={true}
+          type="file"
+        />
         <input
           value={referenceURL}
           onChange={(e) => setreferenceURL(e.target.value)}
           placeholder="Reference URL"
           type="url"
         />
-        <button>Submit</button>
+        <button onClick={() => UploadImages(projectImages)}>Submit</button>
       </div>
     );
   };
@@ -102,7 +108,7 @@ export const NewPosts = () => {
             <div
               style={{
                 boxShadow:
-                  ActiveType === x.set ? "0 0 5px grey, 0 0 10px grey" : "none"
+                  ActiveType === x.set ? "0 0 5px grey, 0 0 10px grey" : "none",
               }}
               onClick={() => setActiveType(x.set)}
               key={x}
