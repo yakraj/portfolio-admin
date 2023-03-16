@@ -1,0 +1,81 @@
+.post-archive-container {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  height: 50vh;
+  flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-radius: 15px;
+}
+
+.single-post-archive {
+  height: 80px;
+  width: 94%;
+  margin: 10px;
+  border-radius: 15px;
+  box-shadow: 0 0 5px grey, 0 0 10px grey;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.single-post-leftside {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.archive-thumbnail {
+  height: 80px;
+  width: 80px;
+  background-image: url("https://production-codepen-email-assets.s3-us-west-2.amazonaws.com/production/JliEf4vMSDWIutyxXvfV_css-art-kit-jenson.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  /* border: 1px solid grey; */
+}
+
+.archive-meta-section {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding: 10px;
+  flex-direction: column;
+}
+
+.archive-meta-section h1 {
+  margin: 0;
+  font-family: sans-serif;
+  color: grey;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+
+.archive-meta-section p {
+  margin: 0;
+  font-family: sans-serif;
+  /* width: 40%; */
+  line-height: 1;
+  overflow: hidden;
+  font-family: sans-serif;
+  color: grey;
+  -webkit-line-break: ;
+  font-size: 0.8rem;
+}
+
+.single-post-rightside {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.single-post-rightside div {
+  height: 25px;
+  width: 25px;
+  background: red;
+  margin: 10px;
+  border-radius: 50%;
+}

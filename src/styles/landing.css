@@ -1,0 +1,108 @@
+#landing {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background: grey;
+  flex-direction: column;
+}
+
+body {
+  margin: 0;
+}
+
+.top-branding {
+  height: 7%;
+  position: relative;
+  box-shadow: 0 0 5px #fff, 0 0 5px grey, 0 0 5px grey, 0 0 5px grey,
+    0 0 5px #000;
+
+  background: azure;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.main-section {
+  display: flex;
+  height: 93%;
+  width: 100%;
+}
+
+.navigation-section {
+  height: 100%;
+  width: 25%;
+  /* border: 1px solid #000; */
+  display: flex;
+  border-right: 1px solid grey;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  background: #f0ffff;
+}
+
+.content-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  background: azure;
+}
+.top-branding h1 {
+  margin: 0;
+  font-family: sans-serif;
+  font-size: 1.5rem;
+}
+
+.top-branding input {
+  border-radius: 25px;
+  width: 60%;
+}
+
+.userAvatar:hover .user-sign-out-container {
+  display: flex;
+}
+.userAvatar {
+  position: relative;
+  height: 50px;
+  width: 50px;
+  background: red;
+  border-radius: 50%;
+}
+.user-sign-out-container {
+  display: none;
+  height: 100px;
+  width: 200px;
+  background: azure;
+  box-shadow: 0 0 5px grey, 0 0 10px grey;
+  border-radius: 20px;
+  /* transition-duration: 0.3s; */
+
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 95%;
+  right: 0;
+}
+
+.user-sign-out-container div {
+  width: 80%;
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: grey;
+  border-radius: 10px;
+  box-shadow: 0 0 5px grey, 0 0 10px grey;
+  padding: 15px;
+  box-sizing: border-box;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+.user-sign-out-container div:hover {
+  color: #fff;
+  background: grey;
+}

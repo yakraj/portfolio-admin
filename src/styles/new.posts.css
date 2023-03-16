@@ -1,0 +1,79 @@
+.new-posts-container {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0px 0px 5px grey, 0px 0px 10px grey;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.post-type {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.post-type div {
+  text-align: center;
+  padding: 10px;
+  font-family: sans-serif;
+  font-weight: 600;
+  color: grey;
+  border-radius: 15px;
+  transition-duration: 0.3s;
+  /* padding: 5px; */
+  width: 40%;
+  cursor: pointer;
+}
+
+.post-form {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.post-form input,
+textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 10px;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  text-transform: capitalize;
+  box-shadow: 0 0 5px grey, 0 0 10px grey;
+  margin: 10px 0px;
+  border-radius: 10px;
+  outline: none;
+  font-size: 1rem;
+}
+
+button {
+  align-self: center;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: grey;
+  background: transparent;
+  border: none;
+  /* width: 20%; */
+  box-shadow: 0 0 5px grey, 0 0 10px grey;
+  border-radius: 15px;
+  margin: 20px;
+  font-size: 1.1rem;
+}
+
+button:hover {
+  cursor: pointer;
+  background: grey;
+  color: #fff;
+}
