@@ -70,6 +70,9 @@ body {
   width: 50px;
   background: red;
   border-radius: 50%;
+  background: url("https://avatars.githubusercontent.com/u/59973173?v=4");
+  background-size: contain;
+  box-shadow: 0 0 5px grey, 0 0 10px grey;
 }
 .user-sign-out-container {
   display: none;

@@ -22,7 +22,7 @@ export const NewPosts = () => {
       setreferenceURL,
       usedTech,
       setusedTech,
-      UploadImages,
+      AddSmallProject,
     } = useContext(MainContext);
 
     return (
@@ -46,7 +46,7 @@ export const NewPosts = () => {
           placeholder="Reference URL"
           type="url"
         />
-        <button onClick={() => UploadImages(projectImages)}>Submit</button>
+        <button onClick={() => AddSmallProject(projectImages)}>Submit</button>
       </div>
     );
   };
@@ -62,7 +62,7 @@ export const NewPosts = () => {
       setreferenceURL,
       usedTech,
       setusedTech,
-      UploadImages,
+      AddMegaProject,
     } = useContext(MainContext);
 
     return (
@@ -96,7 +96,7 @@ export const NewPosts = () => {
           placeholder="Reference URL"
           type="url"
         />
-        <button onClick={() => UploadImages(projectImages)}>Submit</button>
+        <button onClick={() => AddMegaProject(projectImages)}>Submit</button>
       </div>
     );
   };

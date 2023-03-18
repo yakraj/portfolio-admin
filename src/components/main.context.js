@@ -11,19 +11,6 @@ export const ContextContainer = ({ children }) => {
   const [referenceURL, setreferenceURL] = useState("");
   const [usedTech, setusedTech] = useState("");
 
-  // const UploadImages = (files) => {
-  //   const formData = new FormData();
-  //   Array.from(files).forEach((element) => {
-  //     formData.append("file", element);
-  //   });
-  //   formData.append("upload_preset", "portfolio");
-
-  //   Axios.post(
-  //     "https://api.cloudinary.com/v1_1/wows/image/upload",
-  //     formData
-  //   ).then((response) => console.log(response));
-  // };
-
   const UploadImages = (files) => {
     let ResData = [];
     let folder = files.length <= 1 ? "Small_Projects" : "Mega_Projects";
@@ -43,47 +30,81 @@ export const ContextContainer = ({ children }) => {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log("filedata", files.length - 1, i);
-          ResData = [...ResData, data];
+          ResData = [...ResData, data.public_id];
           if (files.length === ResData.length) {
             window.alert("it is the correct last one");
-            console.log(ResData);
+
+            // after uploading all of these images the function will go on rest api
+
+            return ResData;
           }
+
+          return;
         })
         .catch((err) => console.error(err));
-      // fetch(url, {
-      //   method: "POST",
-      //   body: formData,
-      // })
-      //   .then((response) => {
-      //     response.json();
-      //   })
-      //   .then((data) => {
-      //     console.log(data);
-      //     ResData = [...ResData, data];
-      //     if (files[files.length - 1] === files[i]) {
-      //       window.alert("it is the correct last one");
-      //       console.log(ResData);
-      //     }
-      //     // document.getElementById("data").innerHTML += data;
-      //   });
     }
   };
-  // const UploadImages = (files) => {
-  //   const formData = new FormData();
 
-  //   for (let i = 0; i < files.length; i++) {
-  //     formData.append("file", files[i]);
-  //   }
+  const IploadImages = (files) => {
+    let ResData = [];
+    let folder = files.length <= 1 ? "Small_Projects" : "Mega_Projects";
+    var formData = new FormData();
+    var url = "https://api.cloudinary.com/v1_1/wows/image/upload";
+    // Add files to the FormData object
 
-  //   formData.append("upload_preset", "portfolio");
+    return new Promise((resolve, reject) => {
+      for (let i = 0; i < files.length; i++) {
+        let file = files[i];
+        formData.append("file", file);
+        formData.append("upload_preset", "portfolio");
+        formData.append("folder", folder);
 
-  //   Axios.post("https://api.cloudinary.com/v1_1/wows/image/upload", formData, {
-  //     headers: {
-  //       "Content-Type": "multipart/form-data",
-  //     },
-  //   }).then((response) => console.log(response));
-  // };
+        fetch(url, {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            ResData = [...ResData, data.public_id];
+            if (files.length === ResData.length) {
+              resolve(ResData);
+            }
+          })
+          .catch((err) => reject(err));
+      }
+    });
+  };
+
+  const AddSmallProject = (files) => {
+    var data = {
+      title: projectTitle,
+      description: projectDesc,
+      url: referenceURL,
+      thumbnail: null,
+    };
+
+    IploadImages(files)
+      .then((ResData) => {
+        console.log(ResData);
+        // do something with ResData
+      })
+      .catch((err) => console.error(err));
+  };
+  const AddMegaProject = (files) => {
+    var data = {
+      title: projectTitle,
+      description: projectDesc,
+      url: referenceURL,
+      tech: usedTech,
+      images: null,
+    };
+    IploadImages(files)
+      .then((ResData) => {
+        console.log(ResData);
+        // do something with ResData
+      })
+      .catch((err) => console.error(err));
+  };
 
   return (
     <MainContext.Provider
@@ -99,6 +120,8 @@ export const ContextContainer = ({ children }) => {
         usedTech,
         setusedTech,
         UploadImages,
+        AddSmallProject,
+        AddMegaProject,
       }}
     >
       {children}
