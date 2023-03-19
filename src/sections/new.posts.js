@@ -71,7 +71,6 @@ export const NewPosts = () => {
       usedTech,
       setusedTech,
       AddMegaProject,
-      creatingStatus,
     } = useContext(MainContext);
 
     return (
@@ -88,11 +87,18 @@ export const NewPosts = () => {
           type="text"
           placeholder="Project description"
         />
-        <textarea
+
+        <input
           value={usedTech}
           onChange={(e) => setusedTech(e.target.value)}
           type="text"
           placeholder="Technologies used (Saperated by comma)"
+        />
+        <input
+          value={webType}
+          onChange={(e) => setwebType(e.target.value)}
+          type="text"
+          placeholder="Application type"
         />
         <input
           onChange={(e) => setprojectImages(e.target.files)}

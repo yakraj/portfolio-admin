@@ -7,15 +7,46 @@ import { Server } from "./server";
 
 export const MainContext = React.createContext();
 export const ContextContainer = ({ children }) => {
-  const [projectTitle, setProjectTitle] = useState();
-  const [projectDesc, setProjectDesc] = useState();
-  const [projectImages, setprojectImages] = useState();
-  const [referenceURL, setreferenceURL] = useState();
-  const [usedTech, setusedTech] = useState();
-  const [creatingStatus, setCreatingStatus] = useState(false);
-  const [createdStatus, setcreatedStatus] = useState(false);
-  const [SmallProjects, setSmallProjects] = useState([]);
-  const [MegaProjects, setMegaProjects] = useState([]);
+  const [projectTitle, setProjectTitle] = useState("");
+  const [projectDesc, setProjectDesc] = useState("");
+  const [projectImages, setprojectImages] = useState("");
+  const [referenceURL, setreferenceURL] = useState("");
+  const [usedTech, setusedTech] = useState("");
+
+  const UploadImages = (files) => {
+    let ResData = [];
+    let folder = files.length <= 1 ? "Small_Projects" : "Mega_Projects";
+    var formData = new FormData();
+    var url = "https://api.cloudinary.com/v1_1/wows/image/upload";
+    // Add files to the FormData object
+
+    for (let i = 0; i < files.length; i++) {
+      let file = files[i];
+      formData.append("file", file);
+      formData.append("upload_preset", "portfolio");
+      formData.append("folder", folder);
+
+      fetch(url, {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          ResData = [...ResData, data.public_id];
+          if (files.length === ResData.length) {
+            window.alert("it is the correct last one");
+
+            // after uploading all of these images the function will go on rest api
+
+            return ResData;
+          }
+
+          return;
+        })
+        .catch((err) => console.error(err));
+    }
+  };
+
   const IploadImages = (files) => {
     let ResData = [];
     let folder = files.length <= 1 ? "Small_Projects" : "Mega_Projects";
@@ -114,11 +145,6 @@ export const ContextContainer = ({ children }) => {
         setusedTech,
         AddSmallProject,
         AddMegaProject,
-        creatingStatus,
-        SmallProjects,
-        MegaProjects,
-        GetSmallProjects,
-        GetMegaProjects,
       }}
     >
       {children}
