@@ -29,12 +29,14 @@ export const NewPosts = () => {
     return (
       <div className="post-form">
         <input
+          maxLength={12}
           value={projectTitle}
           onChange={(e) => setProjectTitle(e.target.value)}
           placeholder="post-title"
           type="text"
         />
         <textarea
+          maxLength={50}
           value={projectDesc}
           onChange={(e) => setProjectDesc(e.target.value)}
           type="text"
@@ -79,6 +81,7 @@ export const NewPosts = () => {
     return (
       <div className="post-form">
         <input
+          maxLength={12}
           value={projectTitle}
           onChange={(e) => setProjectTitle(e.target.value)}
           placeholder="post-title"

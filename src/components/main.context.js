@@ -17,6 +17,19 @@ export const ContextContainer = ({ children }) => {
   const [createdStatus, setcreatedStatus] = useState(false);
   const [SmallProjects, setSmallProjects] = useState([]);
   const [MegaProjects, setMegaProjects] = useState([]);
+
+  const clearAfterInput = () => {
+    setProjectTitle("");
+    setProjectDesc("");
+    setprojectImages("");
+    setreferenceURL("");
+    setusedTech("");
+    setwebType("");
+    setCreatingStatus("");
+    setcreatedStatus("");
+    setSmallProjects("");
+    setMegaProjects("");
+  };
   const IploadImages = (files) => {
     let ResData = [];
     let folder = files.length <= 1 ? "Small_Projects" : "Mega_Projects";
@@ -57,7 +70,12 @@ export const ContextContainer = ({ children }) => {
           url: referenceURL,
           thumbnail: ResData[0],
         };
-        CreateSmalProject(data, setCreatingStatus, setcreatedStatus);
+        CreateSmalProject(
+          data,
+          setCreatingStatus,
+          setcreatedStatus,
+          clearAfterInput
+        );
       })
       .catch((err) => console.error(err));
   };
@@ -73,7 +91,12 @@ export const ContextContainer = ({ children }) => {
           images: ResData,
           web_type: webType,
         };
-        CreateMegaProject(data, setCreatingStatus, setcreatedStatus);
+        CreateMegaProject(
+          data,
+          setCreatingStatus,
+          setcreatedStatus,
+          clearAfterInput
+        );
       })
       .catch((err) => console.error(err));
   };

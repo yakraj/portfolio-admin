@@ -62,7 +62,7 @@ export const ViewPosts = () => {
                 />
                 <div className="archive-meta-section">
                   <h1>{x.title}</h1>
-                  <p>{x.description}</p>
+                  <p>{x.description.substring(0, 50)}</p>
                 </div>
               </div>
               <div className="single-post-rightside">

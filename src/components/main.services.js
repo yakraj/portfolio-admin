@@ -3,7 +3,8 @@ import { Server } from "./server";
 export const CreateSmalProject = (
   data,
   setCreatingStatus,
-  setcreatedStatus
+  setcreatedStatus,
+  clearAfterInput
 ) => {
   fetch(Server + "/create/smallproject", {
     method: "POST",
@@ -13,15 +14,20 @@ export const CreateSmalProject = (
     body: JSON.stringify(data),
   }).then((response) => {
     setCreatingStatus(false);
-    response.status == 200
-      ? setcreatedStatus("successfully Created")
-      : setcreatedStatus("Faild to Create");
+
+    if (response.status == 200) {
+      clearAfterInput();
+      setcreatedStatus("successfully Created");
+    } else {
+      setcreatedStatus("Faild to Create");
+    }
   });
 };
 export const CreateMegaProject = (
   data,
   setCreatingStatus,
-  setcreatedStatus
+  setcreatedStatus,
+  clearAfterInput
 ) => {
   fetch(Server + "/create/megaproject", {
     method: "POST",
@@ -31,8 +37,11 @@ export const CreateMegaProject = (
     body: JSON.stringify(data),
   }).then((response) => {
     setCreatingStatus(false);
-    response.status == 200
-      ? setcreatedStatus("successfully Created")
-      : setcreatedStatus("Faild to Create");
+    if (response.status == 200) {
+      clearAfterInput();
+      setcreatedStatus("successfully Created");
+    } else {
+      setcreatedStatus("Faild to Create");
+    }
   });
 };
