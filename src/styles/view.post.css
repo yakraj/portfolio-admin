@@ -35,7 +35,8 @@
   background-size: cover;
   background-position: center;
   border-radius: 20px;
-  /* border: 1px solid grey; */
+  border: 1px solid rgba(128, 128, 128, 0.329);
+  box-shadow: 0 0 5px grey, 0 0 10px grey;
 }
 
 .archive-meta-section {

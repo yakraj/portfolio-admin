@@ -23,6 +23,7 @@ export const NewPosts = () => {
       usedTech,
       setusedTech,
       AddSmallProject,
+      creatingStatus,
     } = useContext(MainContext);
 
     return (
@@ -46,7 +47,14 @@ export const NewPosts = () => {
           placeholder="Reference URL"
           type="url"
         />
-        <button onClick={() => AddSmallProject(projectImages)}>Submit</button>
+        <button
+          style={{ opacity: creatingStatus ? 0.2 : 1 }}
+          onClick={() =>
+            creatingStatus ? null : AddSmallProject(projectImages)
+          }
+        >
+          Submit
+        </button>
       </div>
     );
   };
@@ -63,6 +71,7 @@ export const NewPosts = () => {
       usedTech,
       setusedTech,
       AddMegaProject,
+      creatingStatus,
     } = useContext(MainContext);
 
     return (
@@ -96,7 +105,14 @@ export const NewPosts = () => {
           placeholder="Reference URL"
           type="url"
         />
-        <button onClick={() => AddMegaProject(projectImages)}>Submit</button>
+        <button
+          style={{ opacity: creatingStatus ? 0.2 : 1 }}
+          onClick={() =>
+            creatingStatus ? null : AddMegaProject(projectImages)
+          }
+        >
+          Submit
+        </button>
       </div>
     );
   };
