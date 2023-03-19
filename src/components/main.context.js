@@ -10,6 +10,7 @@ export const ContextContainer = ({ children }) => {
   const [projectImages, setprojectImages] = useState("");
   const [referenceURL, setreferenceURL] = useState("");
   const [usedTech, setusedTech] = useState("");
+  const [webType, setwebType] = useState("");
 
   const UploadImages = (files) => {
     let ResData = [];
@@ -121,7 +122,8 @@ export const ContextContainer = ({ children }) => {
         setusedTech,
         UploadImages,
         AddSmallProject,
-        AddMegaProject,
+        AddMegaProject,webType
+        ,setwebType
       }}
     >
       {children}
