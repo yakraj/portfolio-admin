@@ -71,6 +71,9 @@ export const NewPosts = () => {
       usedTech,
       setusedTech,
       AddMegaProject,
+      creatingStatus,
+      webType,
+      setwebType,
     } = useContext(MainContext);
 
     return (
@@ -87,7 +90,6 @@ export const NewPosts = () => {
           type="text"
           placeholder="Project description"
         />
-
         <input
           value={usedTech}
           onChange={(e) => setusedTech(e.target.value)}
@@ -98,7 +100,7 @@ export const NewPosts = () => {
           value={webType}
           onChange={(e) => setwebType(e.target.value)}
           type="text"
-          placeholder="Application type"
+          placeholder="Website Type (eg. Industrial)"
         />
         <input
           onChange={(e) => setprojectImages(e.target.files)}
