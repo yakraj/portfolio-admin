@@ -10,6 +10,17 @@ export const NewPosts = () => {
     { text: "Mega Projects", set: "mega" },
   ];
 
+  const Loading = () => {
+    return (
+      <div style={{ width: "100%", justifyContent: "center", display: "flex" }}>
+        <img
+          alt="loading"
+          src={require("../loading.webp")}
+          style={{ width: "100px" }}
+        />
+      </div>
+    );
+  };
   const SmallProjects = () => {
     const {
       projectTitle,
@@ -49,14 +60,16 @@ export const NewPosts = () => {
           placeholder="Reference URL"
           type="url"
         />
-        <button
-          style={{ opacity: creatingStatus ? 0.2 : 1 }}
-          onClick={() =>
-            creatingStatus ? null : AddSmallProject(projectImages)
-          }
-        >
-          Submit
-        </button>
+        {creatingStatus ? (
+          <Loading />
+        ) : (
+          <button
+            style={{ opacity: creatingStatus ? 0.2 : 1 }}
+            onClick={() => AddSmallProject(projectImages)}
+          >
+            Submit
+          </button>
+        )}
       </div>
     );
   };
@@ -116,14 +129,16 @@ export const NewPosts = () => {
           placeholder="Reference URL"
           type="url"
         />
-        <button
-          style={{ opacity: creatingStatus ? 0.2 : 1 }}
-          onClick={() =>
-            creatingStatus ? null : AddMegaProject(projectImages)
-          }
-        >
-          Submit
-        </button>
+        {creatingStatus ? (
+          <Loading />
+        ) : (
+          <button
+            style={{ opacity: creatingStatus ? 0.2 : 1 }}
+            onClick={() => AddMegaProject(projectImages)}
+          >
+            Submit
+          </button>
+        )}
       </div>
     );
   };

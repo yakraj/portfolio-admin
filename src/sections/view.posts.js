@@ -6,7 +6,6 @@ import "../styles/view.post.css";
 export const ViewPosts = () => {
   const { SmallProjects, MegaProjects, GetSmallProjects, GetMegaProjects } =
     useContext(MainContext);
-  const multiple = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 123, 14, 415];
 
   const [ActiveType, setActiveType] = useState("small");
 

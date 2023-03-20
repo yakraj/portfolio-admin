@@ -55,29 +55,30 @@ export const ContextContainer = ({ children }) => {
               resolve(ResData);
             }
           })
-          .catch((err) => reject(err));
+          .catch((err) => {
+            reject(err);
+            setCreatingStatus(false);
+          });
       }
     });
   };
 
   const AddSmallProject = (files) => {
     setCreatingStatus(true);
-    IploadImages(files)
-      .then((ResData) => {
-        var data = {
-          title: projectTitle,
-          description: projectDesc,
-          url: referenceURL,
-          thumbnail: ResData[0],
-        };
-        CreateSmalProject(
-          data,
-          setCreatingStatus,
-          setcreatedStatus,
-          clearAfterInput
-        );
-      })
-      .catch((err) => console.error(err));
+    IploadImages(files).then((ResData) => {
+      var data = {
+        title: projectTitle,
+        description: projectDesc,
+        url: referenceURL,
+        thumbnail: ResData[0],
+      };
+      CreateSmalProject(
+        data,
+        setCreatingStatus,
+        setcreatedStatus,
+        clearAfterInput
+      );
+    });
   };
   const AddMegaProject = (files) => {
     setCreatingStatus(true);

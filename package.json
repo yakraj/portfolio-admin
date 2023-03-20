@@ -1,10 +1,10 @@
 {
-  "name": "react",
+  "name": "Portfolio Admin",
   "version": "1.0.0",
-  "description": "React example starter project",
+  "description": "A CMS type Admin portal",
   "keywords": [
-    "react",
-    "starter"
+    "Portfolio",
+    "Admin"
   ],
   "main": "src/index.js",
   "dependencies": {
