@@ -25,10 +25,7 @@ export const ContextContainer = ({ children }) => {
     setreferenceURL("");
     setusedTech("");
     setwebType("");
-    setCreatingStatus("");
     setcreatedStatus("");
-    setSmallProjects("");
-    setMegaProjects("");
   };
   const IploadImages = (files) => {
     let ResData = [];
