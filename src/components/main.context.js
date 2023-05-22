@@ -17,7 +17,7 @@ export const ContextContainer = ({ children }) => {
   const [createdStatus, setcreatedStatus] = useState(false);
   const [SmallProjects, setSmallProjects] = useState([]);
   const [MegaProjects, setMegaProjects] = useState([]);
-
+  const [Information, setInformation]  = useState([])
   const clearAfterInput = () => {
     setProjectTitle("");
     setProjectDesc("");
@@ -117,10 +117,20 @@ export const ContextContainer = ({ children }) => {
         setMegaProjects(response);
       });
   };
+  const GetInformaton = () => {
+    fetch(Server + "/information")
+      .then((res) => {
+        return res.json();
+      })
+      .then((response) => {
+        setInformation(response);
+      });
+  };
 
   useEffect(() => {
     GetSmallProjects();
     GetMegaProjects();
+    GetInformaton();
   }, []);
   return (
     <MainContext.Provider
@@ -144,6 +154,7 @@ export const ContextContainer = ({ children }) => {
         GetMegaProjects,
         webType,
         setwebType,
+        Information
       }}
     >
       {children}

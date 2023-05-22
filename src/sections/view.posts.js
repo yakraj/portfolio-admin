@@ -48,7 +48,7 @@ export const ViewPosts = () => {
   const MegaPosts = () => {
     return (
       // https://static-cse.canva.com/blob/651263/youtube.b1db6241.jpg
-      <div className="post-archive-container">
+      <div className="post-archive-container"> 
         {MegaProjects.map((x, i) => {
           return (
             <div key={i} className="single-post-archive">
